@@ -1,4 +1,4 @@
-#include <stdio.h>
+s#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -59,7 +59,7 @@ if there's an error loading the locations. If an error is returned, the program 
 int LocationReadMap(Location map[], int maxLocations, char *filename){
     char aline[MAX_LINE];
     int numLocations = 0;
-    int result = 0;
+   //int result = 0;
     FILE *fp;
     Location aLocation;
 
@@ -81,27 +81,39 @@ int LocationReadMap(Location map[], int maxLocations, char *filename){
         fclose(fp);
     }
     else{
-        result = -1;
+       // result = -1;
+        printf("ERROR: failed to read file: %s \n", filename);
+        exit(1);
     }
 
-    if (numLocations > 0) {
+    // if(numLocations > 0){
 
-    }
-
+    // }
+    return numLocations;
 }
 
 /* Adds the item specified by itemNumber to the item list for the location
 specified by pLocation.
 */
 void LocationAddItem(Location *pLocation, int itemNumber){
-    //Check if there is room to add more items
-    if(pLocation->items.count < MAX_ITEMS){
-        // Add the item to the item list
-        pLocation->items.items[pLocation->items.count] = itemNumber;
-        pLocation->items.count++;
+    if(pLocation->items.count > MAX_ITEMS){
+        printf("ERROR: Unable to add item, item limit reached.\n");
+        return;
     }
-    else{
-        printf("ERROR: You cannot do this.\n");
+
+    pLocation->items.items[pLocation->items.count] = itemNumber;
+    pLocation->items.count++;
+    return;
+
+
+    // //Check if there is room to add more items
+    // if(pLocation->items.itemCount < MAX_ITEMS){
+    //     // Add the item to the item list
+    //     pLocation->items.items[pLocation->items.itemCount] = itemNumber;
+    //     pLocation->items.itemCount++;
+    // }
+    // else{
+    //     printf("ERROR: You cannot do this.\n");
 }
 
 /* Removes the item specified by itemNumber from the item list for the location
@@ -109,13 +121,13 @@ specified by pLocation.
 */
 void LocationRemoveItem(Location *pLocation, int itemNumber){
     // Search for the item in the item list
-    for(int i = 0; i < pLocation->items.itemCount; i++){
+    for(int i = 0; i < pLocation->items.count; i++){
         if(pLocation->items.items[i] == itemNumber){
             // Found the item, remove it by shifting elements
-            for(int j = i; j < pLocation->items.itemCount - 1; j++){
+            for(int j = i; j < pLocation->items.count - 1; j++){
                 pLocation->items.items[j] = pLocation->items.items[j + 1];
             }
-            pLocation->items.itemCount--;
+            pLocation->items.count--;
             return;
         }
         else{
@@ -129,7 +141,7 @@ for the location specified by pLocation and returns false if it is not.
 */
 bool LocationHasItem(Location *pLocation, int itemNumber){
     // Search for the item in the item list
-    for(int i = 0; i < pLocation->items.itemCount; i++){
+    for(int i = 0; i < pLocation->items.count; i++){
         if(pLocation->items.items[i] == itemNumber){
             // Item found
             return true;
