@@ -71,6 +71,12 @@ void ParseUserInput(char *aline){
             break;
         case 'w':
         case 'W':
-            if()
+            if(game.map[game.player.location].west == -1){
+                printf("You cannot go that way\n");
+            }
+            else{
+                game.player.location = game.map[game.player.location].west;
+            }
+            break;
     }
 }
