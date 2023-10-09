@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "Location.h"
 #include "Item.h"
+//#include "ItemList.h"
+#include "Location.h"
 
 #define MAX_LINE 400
 
@@ -83,9 +84,10 @@ int LocationReadMap(Location map[], int maxLocations, char *filename){
         result = -1;
     }
 
-    if(numLocations > 0){
+    if (numLocations > 0) {
 
     }
+
 }
 
 /* Adds the item specified by itemNumber to the item list for the location
@@ -93,10 +95,10 @@ specified by pLocation.
 */
 void LocationAddItem(Location *pLocation, int itemNumber){
     //Check if there is room to add more items
-    if(pLocation->items.itemCount < MAX_ITEMS){
+    if(pLocation->items.count < MAX_ITEMS){
         // Add the item to the item list
-        pLocation->items.items[pLocation->items.itemCount] = itemNumber;
-        pLocation->items.itemCount++;
+        pLocation->items.items[pLocation->items.count] = itemNumber;
+        pLocation->items.count++;
     }
     else{
         printf("ERROR: You cannot do this.\n");

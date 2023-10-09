@@ -27,10 +27,43 @@ void Describe(int location){
 }
 // Read user input
 int GetUserInput(char *aline, int maxLine){
-
+    fgets(aline, maxLine, stdin);
+    aline[maxLine - 1] = '\0';
+    return strlen(aline);
 }
 
 //Parse and perform the appropriate operation or report an error message
 void ParseUserInput(char *aline){
+    char *verb;
+    char *noun;
+    int loc;
 
+    verb = strtok(aline, " "); // get the first token
+    noun = strtok(NULL, " "); // get the second token
+
+    swtich(verb[0]){
+        case 'n':
+        case 'N':
+            if(game.map[game.player.location].north == -1){
+                printf("You cannot go that way\n");
+            }
+            else{
+                game.player.location = game.map[game.player.location].north;
+            }
+            break;
+        case 'e':
+        case 'E':
+            if(game.map[game.player.location].east == -1){
+                printf("You cannot go that way\n");
+            }
+            else{
+                game.player.location = game.map[game.player.location].east;
+            }
+            break;
+        case 's':
+        case 'S':
+            if(game.map[game.player.location].south == -1){
+                printf("You cannot go that way\n");
+            }
+    }
 }

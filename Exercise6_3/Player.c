@@ -19,7 +19,7 @@ void PlayerInit(Player *pPlayer, int locationNumber){
 by pPlayer.
 */
 void PlayerAddItem(Player *pPlayer, int itemNumber){
-    ItemListAddItem(pPlayer->items, itemNumber);
+    ItemListAddItem(&pPlayer->items, itemNumber);
 }
 
 // Removes the item specified by itemNumber from the item list for the player specified by pPlayer.

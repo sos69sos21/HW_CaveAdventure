@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <stdbool.h>
+#include "ItemList.h"
 
 typedef struct{
     int location;
