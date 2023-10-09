@@ -130,9 +130,6 @@ void LocationRemoveItem(Location *pLocation, int itemNumber){
             pLocation->items.count--;
             return;
         }
-        else{
-            printf("ERROR: Cannot find this item\n");
-        }
     }
 }
 
