@@ -28,10 +28,10 @@ int main()
 
    for(int i=0; i<game.numLocations; i++)
    {
-      if(game.map[i].items.count > 0 )
+      if(game.map[i].count > 0 )
       {
          printf("LOC %d contains ", i);
-         for(int j=0; j<game.map[i].items.count; j++)
+         for(int j=0; j<game.map[i].count; j++)
          {
             printf(" %d", game.map[i].items.items[j]);
          }

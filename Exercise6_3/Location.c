@@ -3,6 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 #include "Location.h"
+#include "ItemList.h"
+#include "Item.h"
 
 #define MAX_LINE 400
 
@@ -91,19 +93,47 @@ int LocationReadMap(Location map[], int maxLocations, char *filename){
 specified by pLocation.
 */
 void LocationAddItem(Location *pLocation, int itemNumber){
-
+    //Check if there is room to add more items
+    if(pLocation->items.itemCount < MAX_ITEMS){
+        // Add the item to the item list
+        pLocation->items.items[pLocation->items.itemCount] = itemNumber;
+        pLocation->items.itemCount++;
+    }
+    else{
+        printf("ERROR: You cannot do this.\n");
 }
 
 /* Removes the item specified by itemNumber from the item list for the location
 specified by pLocation.
 */
 void LocationRemoveItem(Location *pLocation, int itemNumber){
-
+    // Search for the item in the item list
+    for(int i = 0; i < pLocation->items.itemCount; i++){
+        if(pLocation->items.items[i] == itemNumber){
+            // Found the item, remove it by shifting elements
+            for(int j = i; j < pLocation->items.itemCount - 1; j++){
+                pLocation->items.items[j] = pLocation->items.items[j + 1];
+            }
+            pLocation->items.itemCount--;
+            return;
+        }
+        else{
+            printf("ERROR: Cannot find this item\n");
+        }
+    }
 }
 
 /* Returns true if the itemNumber is contained within the item list
 for the location specified by pLocation and returns false if it is not.
 */
 bool LocationHasItem(Location *pLocation, int itemNumber){
-    
+    // Search for the item in the item list
+    for(int i = 0; i < pLocation->items.itemCount; i++){
+        if(pLocation->items.items[i] == itemNumber){
+            // Item found
+            return true;
+        }
+    }
+    // Item not found
+    return false; 
 }
