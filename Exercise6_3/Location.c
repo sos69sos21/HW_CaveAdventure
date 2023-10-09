@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 #include "Location.h"
-#include "ItemList.h"
 #include "Item.h"
 
 #define MAX_LINE 400
