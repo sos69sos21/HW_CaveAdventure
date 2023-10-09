@@ -2,6 +2,7 @@
 #define LOCATION_H
 
 #include <stdbool.h>
+#include "ItemList.h"
 
 #define MAX_LOC_NAME_STRING 25
 #define MAX_LOC_DESCRIPTION_STRING 250

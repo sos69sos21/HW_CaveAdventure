@@ -9,8 +9,7 @@ Sets the initial location number to the value specified by locationNumber.
 */
 void PlayerInit(Player *pPlayer, int locationNumber){
     // Set the intitial location number to the value specified by locationNumber.
-
-
+    pPlayer->location = locationNumber;
     // Handle ItemList items
     ItemListInit(&pPlayer->items);
 }
@@ -19,17 +18,17 @@ void PlayerInit(Player *pPlayer, int locationNumber){
 by pPlayer.
 */
 void PlayerAddItem(Player *pPlayer, int itemNumber){
-    ItemListAddItem(pPlayer->items, itemNumber);
+    ItemListAddItem(&pPlayer->items, itemNumber);
 }
 
 // Removes the item specified by itemNumber from the item list for the player specified by pPlayer.
 void PlayerRemoveItem(Player *pPlayer, int itemNumber){
-
+    ItemListRemoveItem(&pPlayer->items, itemNumber);
 }
 
 /* Returns true if the itemNumber is contained within the item list for the player
 specified by pPlayer and returns false if it is not.
 */
 bool PlayerHasItem(Player *pPlayer, int itemNumber){
-
+    return ItemListHasItem(&pPlayer->items, itemNumber);
 }
