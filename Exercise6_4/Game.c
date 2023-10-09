@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "Game.h"
 #include "Location.h"
 #include "Item.h"
@@ -10,9 +11,12 @@ int GameInitialize(Game *pGame){
     srand(clock());
     int place; 
 
-    LocationReadMap();
-    ItemReadItems();
-    PlayerInit();
+    pGame->numLocations = LocationReadMap(pGame->map, MAX_MAP_LOCATIONS, MAP_FILE);
+   // LocationReadMap();
+    pGame->itemCount = ItemReadItems(pGame->items, MAX_ITEM_COUNT, ITEMS_FILE);
+   // ItemReadItems();
+    //PlayerInit();
+    PlayerInit(&pGame->player, 0);
 
     for(int i = 0; i < pGame->itemCount; i++){
         place = rand() % pGame->numLocations;
