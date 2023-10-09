@@ -23,4 +23,5 @@ void PlayerRemoveItem(Player *pPlayer, int itemNumber);
 specified by pPlayer and returns false if it is not.
 */
 bool PlayerHasItem(Player *pPlayer, int itemNumber);
+
 #endif

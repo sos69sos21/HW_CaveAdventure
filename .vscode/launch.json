@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/sosa/Desktop/HW_CaveAdventure/Exercise6_1",
-      "program": "/Users/sosa/Desktop/HW_CaveAdventure/Exercise6_1/build/Debug/outDebug"
+      "cwd": "/Users/sosa/Desktop/HW_CaveAdventure/Exercise6_2",
+      "program": "/Users/sosa/Desktop/HW_CaveAdventure/Exercise6_2/build/Debug/outDebug"
     }
   ]
 }
