@@ -5,6 +5,9 @@
 #define MAX_ITEM_DESCRIPTION_STRING 80
 #define MAX_ITEMS 15
 
+// Used to store names and descriptoin as charater arrays.
+// Size of arrays are determined by the constants in [].
+// Limits the length to a specific number of characters.
 typedef struct{
     char name[MAX_ITEM_NAME_STRING];
     char description[MAX_ITEM_DESCRIPTION_STRING];

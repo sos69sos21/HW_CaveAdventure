@@ -12,9 +12,9 @@ typedef struct{
     char description[MAX_LOC_DESCRIPTION_STRING];
     int north; // index of location to the north
     int east; // index of location to the east
-    int south;
-    int west;
-    ItemList items;
+    int south; // index of location to the south
+    int west; // index of location to the west
+    ItemList items; // items in this location
 } Location;
 
 /* Returns the number of map locations loaded into the map array or returns -1

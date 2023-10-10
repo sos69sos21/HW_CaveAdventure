@@ -6,7 +6,7 @@
 
 typedef struct{
     int location;
-    ItemList items;
+    ItemList items; // items in this location
 } Player;
 
 /* Initializes the Player structure pointed to by pPlayer.
