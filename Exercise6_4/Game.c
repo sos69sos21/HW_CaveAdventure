@@ -7,6 +7,10 @@
 #include "Item.h"
 #include "Player.h"
 
+/*
+Initializes the game structure and calls the initialize routines for the game's map and the game's items.
+The player object is also initialized
+*/
 int GameInitialize(Game *pGame){
     srand(clock());
     int place; 

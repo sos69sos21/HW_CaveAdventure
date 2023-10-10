@@ -14,9 +14,19 @@ Game game;
 
 int main(void){
 
+    // Initialized the game
+    // Prints a list of game items, includes names
+    // and description
     GameInitialize(&game);
     PrintGameItems();
     
+    /*
+    Runs an infinite loop until 'q' is pressed.  Describe()
+    describes player's current location, prints the name and 
+    description.  User input(), used to prompt user input
+    reads it and stores it. Parse performs game action based 
+    on user's input
+    */
     while(1){
         Describe(game.player.location);
 
@@ -30,6 +40,9 @@ int main(void){
     return 0;
 }
 
+/*
+Displays a list of game items, names and descriptions
+*/
 void PrintGameItems(){
     printf("GAME ITEMS\n");
     printf("--------------------------------------------------------\n");
@@ -53,15 +66,13 @@ void Describe(int location){
             printf("There is a %s here\n", game.items[itemNum].name);
         }
     }
-
-   // exit(1);
-
-    //get current location
-
-
-    //print location and items
 }
-//Read user input
+/*
+Prompts the user for input
+Read a line of text from the console
+Store it int he provided Char array
+Return the length of the input line
+*/
 int GetUserInput(char *aline, int maxLine){
     printf(">");
     fgets(aline, maxLine, stdin);

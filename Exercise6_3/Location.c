@@ -81,14 +81,9 @@ int LocationReadMap(Location map[], int maxLocations, char *filename){
         fclose(fp);
     }
     else{
-       // result = -1;
         printf("ERROR: failed to read file: %s \n", filename);
         exit(1);
     }
-
-    // if(numLocations > 0){
-
-    // }
     return numLocations;
 }
 
@@ -104,16 +99,6 @@ void LocationAddItem(Location *pLocation, int itemNumber){
     pLocation->items.items[pLocation->items.count] = itemNumber;
     pLocation->items.count++;
     return;
-
-
-    // //Check if there is room to add more items
-    // if(pLocation->items.itemCount < MAX_ITEMS){
-    //     // Add the item to the item list
-    //     pLocation->items.items[pLocation->items.itemCount] = itemNumber;
-    //     pLocation->items.itemCount++;
-    // }
-    // else{
-    //     printf("ERROR: You cannot do this.\n");
 }
 
 /* Removes the item specified by itemNumber from the item list for the location
